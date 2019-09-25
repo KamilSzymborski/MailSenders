@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<docs>
+  <header>
+    <summary>
+      [www.aol.com] AOL sender.
+    </summary>
+    <remarks>
+      Go to main AOL profile -> Account Security -> Allow apps that use less secure sign-in.
+    </remarks>
+  </header>
+  <constructor name="(string, string)">
+    <summary>
+      Creates AOL sender.
+    </summary>
+    <param name="Login">
+      e-mail adress.
+    </param>
+    <param name="Password">
+      e-mail password or special e-mail password for applications.
+    </param>
+  </constructor>
+</docs>

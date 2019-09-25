@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<docs>
+  <header>
+    <summary>
+      Attachment.
+    </summary>
+  </header>
+  <constructor name="(byte[], string)">
+    <summary>
+      Creates attachment.
+    </summary>
+    <param name="Data">
+      raw data.
+    </param>
+    <param name="FileName">
+      name with extension.
+    </param>
+  </constructor>
+  <method name="FromFile(string)">
+    <summary>
+      Creates attachment from file.
+    </summary>
+    <remarks>
+      Not buffered.
+    </remarks>
+    <param name="Path">
+      file path.
+    </param>
+    <returns>
+      Attachment.
+    </returns>
+  </method>
+</docs>

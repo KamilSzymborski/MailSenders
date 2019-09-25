@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<docs>
+  <header>
+    <summary>
+      Base mail sender - declare your own host and port.
+    </summary>
+  </header>
+  <constructor name="(uint, string, string, string)">
+    <summary>
+      Declare your own host and port.
+    </summary>
+    <param name="Port">
+      get data from the supplier.
+    </param>
+    <param name="Host">
+      get data from the supplier.
+    </param>
+    <param name="Login">
+      e-mail adress.
+    </param>
+    <param name="Password">
+      e-mail password or special e-mail password for applications.
+    </param>
+  </constructor>
+  <event name="Failed">
+    <summary>
+      Failure. Raised only for asynchronous operations.
+    </summary>
+  </event>
+  <event name="Sended">
+    <summary>
+      Success. Raised only for asynchronous operations.
+    </summary>
+  </event>
+  <method name="Send(string, string, params Attachment[])">
+    <summary>
+      Sends the mail synchronously without a title.
+    </summary>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      True, for success; False, for failure.
+    </returns>
+  </method>
+  <method name="Send(string, string, string, params Attachment[])">
+    <summary>
+      Sends the mail synchronously with a title.
+    </summary>
+    <param name="Title">
+      message title.
+    </param>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      True, for success; False, for failure.
+    </returns>
+  </method>
+  <method name="SendAsync(string, string, params Attachment[])">
+    <summary>
+      Sends the mail asynchronously without a title.
+    </summary>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      True, for success; False, for failure.
+    </returns>
+  </method>
+  <method name="SendAsync(string, string, string, params Attachment[])">
+    <summary>
+      Sends the mail asynchronously with a title.
+    </summary>
+    <param name="Title">
+      message title.
+    </param>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      True, for success; False, for failure.
+    </returns>
+  </method>
+</docs>
