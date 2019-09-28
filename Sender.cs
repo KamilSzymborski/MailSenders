@@ -86,6 +86,7 @@ namespace KamilSzymborski.MailSenders
                 {
                     Mail.Subject = Title;
                     Mail.Body = Message;
+                    Mail.IsBodyHtml = true;
 
                     foreach (var Attachment in Attachments)
                     {
