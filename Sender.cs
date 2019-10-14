@@ -120,9 +120,13 @@ namespace KamilSzymborski.MailSenders
         #endregion
 
         #region Properties
+        /// <include file=".Docs/.Sender.xml" path="docs/property[@name='Port']/*"/>
         public uint Port { get { return mPort; } }
+        /// <include file=".Docs/.Sender.xml" path="docs/property[@name='Host']/*"/>
         public string Host { get { return mHost; } }
+        /// <include file=".Docs/.Sender.xml" path="docs/property[@name='Login']/*"/>
         public string Login { get { return mLogin; } }
+        /// <include file=".Docs/.Sender.xml" path="docs/property[@name='Password']/*"/>
         public string Password { get { return mPassword; } }
         #endregion
 

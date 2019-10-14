@@ -31,4 +31,14 @@
       attachment.
     </returns>
   </method>
+  <property name="Data">
+    <summary>
+      Raw data of file.
+    </summary>
+  </property>
+  <property name="FileName">
+    <summary>
+      File name (name + extension) of attachment.
+    </summary>
+  </property>
 </docs>

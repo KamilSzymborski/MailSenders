@@ -107,4 +107,24 @@
       true if success.
     </returns>
   </method>
+  <property name="Port">
+    <summary>
+      Port.
+    </summary>
+  </property>
+  <property name="Host">
+    <summary>
+      Host.
+    </summary>
+  </property>
+  <property name="Login">
+    <summary>
+      Login / e-mail address.
+    </summary>
+  </property>
+  <property name="Password">
+    <summary>
+      Password.
+    </summary>
+  </property>
 </docs>

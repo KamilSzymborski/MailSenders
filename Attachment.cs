@@ -21,7 +21,9 @@
         #endregion
 
         #region Properties
+        /// <include file=".Docs/.Attachment.xml" path="docs/property[@name='Data']"/>
         public byte[] Data { get { return mData; } }
+        /// <include file=".Docs/.Attachment.xml" path="docs/property[@name='FileName']"/>
         public string FileName { get { return mFileName; } }
         #endregion
 
