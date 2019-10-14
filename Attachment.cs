@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace KamilSzymborski.MailSenders
+﻿namespace KamilSzymborski.MailSenders
 {
     /// <include file=".Docs/.Attachment.xml" path="docs/header"/>
     public class Attachment

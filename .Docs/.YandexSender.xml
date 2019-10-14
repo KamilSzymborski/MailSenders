@@ -3,18 +3,17 @@
 <docs>
   <header>
     <summary>
-      [www.yandex.com] Yandex sender.
+      [587] [smtp.yandex.com] Yandex sender.
+      <para />
+      Note: you do not have to do anything.
     </summary>
-    <remarks>
-      You do not have to do anything.
-    </remarks>
   </header>
   <constructor name="(string, string)">
     <summary>
       Creates Yandex sender.
     </summary>
     <param name="Login">
-      e-mail adress.
+      e-mail address.
     </param>
     <param name="Password">
       e-mail password or special e-mail password for applications.

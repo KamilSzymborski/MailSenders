@@ -3,18 +3,17 @@
 <docs>
   <header>
     <summary>
-      [www.outlook.com] Outlook sender.
+      [587] [smtp-mail.outlook.com] Outlook sender.
+      <para />
+      Note: you do not have to do anything.
     </summary>
-    <remarks>
-      You do not have to do anything.
-    </remarks>
   </header>
   <constructor name="(string, string)">
     <summary>
       Creates Outlook sender.
     </summary>
     <param name="Login">
-      e-mail adress.
+      e-mail address.
     </param>
     <param name="Password">
       e-mail password or special e-mail password for applications.

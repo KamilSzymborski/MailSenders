@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.IO;
+using System.Collections.Generic;
 
 namespace KamilSzymborski.MailSenders
 {
@@ -7,11 +8,11 @@ namespace KamilSzymborski.MailSenders
         #region Methods
         internal static bool IsKnown(string FileName)
         {
-            return Map.ContainsKey(PathService.GetFileExtension(FileName).ToLower());
+            return Map.ContainsKey(Path.GetExtension(FileName).Substring(1).ToLower());
         }
         internal static string From(string FileName)
         {
-            return Map[PathService.GetFileExtension(FileName).ToLower()];
+            return Map[Path.GetExtension(FileName).Substring(1).ToLower()];
         }
         #endregion
 

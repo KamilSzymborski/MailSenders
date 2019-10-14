@@ -3,18 +3,17 @@
 <docs>
   <header>
     <summary>
-      [www.gmail.com] GMail sender.
+      [587] [smtp.gmail.com] GMail sender.
+      <para />
+      Note: go to https://myaccount.google.com/lesssecureapps and set "Allow less secure apps" to ON.
     </summary>
-    <remarks>
-      Go to https://myaccount.google.com/lesssecureapps and set "Allow less secure apps" to ON.
-    </remarks>
   </header>
   <constructor name="(string, string)">
     <summary>
       Creates GMail sender.
     </summary>
     <param name="Login">
-      e-mail adress.
+      e-mail address.
     </param>
     <param name="Password">
       e-mail password or special e-mail password for applications.

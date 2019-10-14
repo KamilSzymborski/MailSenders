@@ -3,18 +3,17 @@
 <docs>
   <header>
     <summary>
-      [www.yahoo.com] Yahoo sender.
+      [587] [smtp.mail.yahoo.com] Yahoo sender.
+      <para />
+      Note: go to account settings -> account security -> allow apps that use less secure sign-in.
     </summary>
-    <remarks>
-      Go to main Yahoo account settings -> Account Security -> Allow apps that use less secure sign-in.
-    </remarks>
   </header>
   <constructor name="(string, string)">
     <summary>
       Creates Yahoo sender.
     </summary>
     <param name="Login">
-      e-mail adress.
+      e-mail address.
     </param>
     <param name="Password">
       e-mail password or special e-mail password for applications.

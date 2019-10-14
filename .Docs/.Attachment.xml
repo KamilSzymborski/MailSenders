@@ -8,7 +8,7 @@
   </header>
   <constructor name="(byte[], string)">
     <summary>
-      Creates attachment.
+      Creates Attachment.
     </summary>
     <param name="Data">
       raw data.
@@ -28,7 +28,7 @@
       file path.
     </param>
     <returns>
-      Attachment.
+      attachment.
     </returns>
   </method>
 </docs>

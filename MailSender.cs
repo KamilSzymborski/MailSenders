@@ -5,7 +5,7 @@
     {
         #region Constructors
         /// <include file=".Docs/.MailSender.xml" path="docs/constructor[@name='(string, string)']"/>
-        public MailSender(string Login, string Password) : base(587, "smtp.mail.com ", Login, Password) { }
+        public MailSender(string Login, string Password) : base(587, "smtp.mail.com", Login, Password) { }
         #endregion
     }
 }

@@ -17,7 +17,7 @@
       get data from the supplier.
     </param>
     <param name="Login">
-      e-mail adress.
+      e-mail address.
     </param>
     <param name="Password">
       e-mail password or special e-mail password for applications.
@@ -47,7 +47,7 @@
       attachments in the right (?) size.
     </param>
     <returns>
-      True, for success; False, for failure.
+      true if success.
     </returns>
   </method>
   <method name="Send(string, string, string, params Attachment[])">
@@ -67,7 +67,7 @@
       attachments in the right (?) size.
     </param>
     <returns>
-      True, for success; False, for failure.
+      true if success.
     </returns>
   </method>
   <method name="SendAsync(string, string, params Attachment[])">
@@ -84,7 +84,7 @@
       attachments in the right (?) size.
     </param>
     <returns>
-      True, for success; False, for failure.
+      true if success.
     </returns>
   </method>
   <method name="SendAsync(string, string, string, params Attachment[])">
@@ -104,7 +104,7 @@
       attachments in the right (?) size.
     </param>
     <returns>
-      True, for success; False, for failure.
+      true if success.
     </returns>
   </method>
 </docs>
