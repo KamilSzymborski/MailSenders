@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KamilSzymborski.MailSenders
@@ -20,6 +21,7 @@ namespace KamilSzymborski.MailSenders
             mPassword = Password;
 
             mClient = new SmtpClient();
+            mSemaphore = new SemaphoreSlim(1);
 
             mInit();
         }
@@ -77,6 +79,8 @@ namespace KamilSzymborski.MailSenders
         }
         private bool mSend(string Title, string Message, string Recipient, params Attachment[] Attachments)
         {
+            mSemaphore.Wait();
+
             var Success = true;
             var Streams = new List<Stream>();
 
@@ -113,6 +117,7 @@ namespace KamilSzymborski.MailSenders
             finally
             {
                 Streams.ForEach((Stream) => Stream.Close());
+                mSemaphore.Release();
             }
 
             return Success;
@@ -136,6 +141,7 @@ namespace KamilSzymborski.MailSenders
         private readonly string mLogin;
         private readonly string mPassword;
         private readonly SmtpClient mClient;
+        private readonly SemaphoreSlim mSemaphore;
         #endregion
     }
 }
