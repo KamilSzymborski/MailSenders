@@ -21,8 +21,8 @@
         #endregion
 
         #region Properties
-        internal byte[] Data { get { return mData; } }
-        internal string FileName { get { return mFileName; } }
+        public byte[] Data { get { return mData; } }
+        public string FileName { get { return mFileName; } }
         #endregion
 
         #region Variables

@@ -119,6 +119,13 @@ namespace KamilSzymborski.MailSenders
         }
         #endregion
 
+        #region Properties
+        public uint Port { get { return mPort; } }
+        public string Host { get { return mHost; } }
+        public string Login { get { return mLogin; } }
+        public string Password { get { return mPassword; } }
+        #endregion
+
         #region Variables
         private readonly uint mPort;
         private readonly string mHost;
