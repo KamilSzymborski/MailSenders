@@ -95,6 +95,36 @@
       true if success.
     </returns>
   </method>
+  <method name="Send(string, string, string, string, string, params Attachment[])">
+    <summary>
+      Sends the mail synchronously with a title and optionally with display name and replyer.
+    </summary>
+    <param name="Title">
+      message title.
+    </param>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="DisplayName">
+      [can be null] sender's name, for example: "Microsoft Corp.".
+      <para />
+      Note: may be ignored / overwritten by account settings.
+    </param>
+    <param name="Replyer">
+      [can be null] reply email address, for example: "no@reply.com".
+      <para />
+      Note: must be like an email address.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      true if success.
+    </returns>
+  </method>
   <method name="SendAsync(string, string, params Attachment[])">
     <summary>
       Sends the mail asynchronously without a title.
@@ -149,6 +179,36 @@
       [can be null] sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
+    </param>
+    <param name="Attachments">
+      attachments in the right (?) size.
+    </param>
+    <returns>
+      true if success.
+    </returns>
+  </method>
+  <method name="SendAsync(string, string, string, string, string, params Attachment[])">
+    <summary>
+      Sends the mail asynchronously with a title and optionally with display name and replyer.
+    </summary>
+    <param name="Title">
+      message title.
+    </param>
+    <param name="Message">
+      message in plain text or html.
+    </param>
+    <param name="Recipient">
+      recipient's email address.
+    </param>
+    <param name="DisplayName">
+      [can be null] sender's name, for example: "Microsoft Corp.".
+      <para />
+      Note: may be ignored / overwritten by account settings.
+    </param>
+    <param name="Replyer">
+      [can be null] reply email address, for example: "no@reply.com".
+      <para />
+      Note: must be like an email address.
     </param>
     <param name="Attachments">
       attachments in the right (?) size.
