@@ -17,7 +17,7 @@
       name with extension.
     </param>
   </constructor>
-  <method name="FromFile(string)">
+  <method name="FromFile(string, string)">
     <summary>
       Creates attachment from file.
     </summary>
@@ -26,6 +26,9 @@
     </remarks>
     <param name="Path">
       file path.
+    </param>
+    <param name="DisplayName">
+      [can be null] base name / display name.
     </param>
     <returns>
       attachment.
