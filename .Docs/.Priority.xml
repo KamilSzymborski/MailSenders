@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<docs>
+  <header>
+    <summary>
+      E-mail priority.
+    </summary>
+  </header>
+  <value name="Low">
+    <summary>
+      Low priority.
+    </summary>
+  </value>
+  <value name="Normal">
+    <summary>
+      Normal priority.
+    </summary>
+  </value>
+  <value name="High">
+    <summary>
+      High priority.
+    </summary>
+  </value>
+</docs>
