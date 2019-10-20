@@ -45,6 +45,7 @@ namespace KamilSzymborski.MailSenders
         {
             return mSend(Title, Message, Recipient, null, Attachments);
         }
+        /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, string, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
         {
             return mSend(Title, Message, Recipient, DisplayName, Attachments);
@@ -73,6 +74,7 @@ namespace KamilSzymborski.MailSenders
 
             return Success;
         }
+        /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
         {
             var Success = await Task.Run(() => mSend(Title, Message, Recipient, DisplayName, Attachments));
