@@ -38,17 +38,21 @@ namespace KamilSzymborski.MailSenders
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, params Attachment[])']/*"/>
         public bool Send(string Message, string Recipient, params Attachment[] Attachments)
         {
-            return mSend(string.Empty, Message, Recipient, Attachments);
+            return mSend(string.Empty, Message, Recipient, null, Attachments);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, params Attachment[] Attachments)
         {
-            return mSend(Title, Message, Recipient, Attachments);
+            return mSend(Title, Message, Recipient, null, Attachments);
+        }
+        public bool Send(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
+        {
+            return mSend(Title, Message, Recipient, DisplayName, Attachments);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Message, string Recipient, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(string.Empty, Message, Recipient, Attachments));
+            var Success = await Task.Run(() => mSend(string.Empty, Message, Recipient, null, Attachments));
 
             if (Success)
                 Sended?.Invoke();
@@ -60,7 +64,18 @@ namespace KamilSzymborski.MailSenders
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(Title, Message, Recipient, Attachments));
+            var Success = await Task.Run(() => mSend(Title, Message, Recipient, null, Attachments));
+
+            if (Success)
+                Sended?.Invoke();
+            else
+                Failed?.Invoke();
+
+            return Success;
+        }
+        public async Task<bool> SendAsync(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
+        {
+            var Success = await Task.Run(() => mSend(Title, Message, Recipient, DisplayName, Attachments));
 
             if (Success)
                 Sended?.Invoke();
@@ -77,7 +92,7 @@ namespace KamilSzymborski.MailSenders
             mClient.Credentials = new NetworkCredential(mLogin, mPassword);
             mClient.EnableSsl = true;
         }
-        private bool mSend(string Title, string Message, string Recipient, params Attachment[] Attachments)
+        private bool mSend(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
         {
             mSemaphore.Wait();
 
@@ -91,6 +106,8 @@ namespace KamilSzymborski.MailSenders
                     Mail.Subject = Title;
                     Mail.Body = Message;
                     Mail.IsBodyHtml = true;
+
+                    if (DisplayName is null == false) Mail.From = new MailAddress(mLogin, DisplayName);
 
                     foreach (var Attachment in Attachments)
                     {
