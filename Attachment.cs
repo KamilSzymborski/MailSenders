@@ -5,9 +5,9 @@
     {
         #region Static:Methods
         /// <include file=".Docs/.Attachment.xml" path="docs/method[@name='FromFile(string)']"/>
-        public static Attachment FromFile(string Path)
+        public static Attachment FromFile(string Path, string DisplayName = null)
         {
-            return new Attachment(FileService.ReadAllBytes(Path), PathService.GetFileName(Path));
+            return new Attachment(FileService.ReadAllBytes(Path), DisplayName is null? PathService.GetFileName(Path) : PathService.CombineName(DisplayName, PathService.GetFileExtension(Path)));
         }
         #endregion
 

@@ -13,6 +13,10 @@ namespace KamilSzymborski.MailSenders
         {
             return Net.Path.GetExtension(Path).Substring(1);
         }
+        internal static string CombineName(string Name, string Extension)
+        {
+            return Net.Path.ChangeExtension(Name, Extension);
+        }
         #endregion
     }
 }
