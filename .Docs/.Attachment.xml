@@ -3,45 +3,42 @@
 <docs>
   <header>
     <summary>
-      Attachment.
+      Represents file data and name of attachment.
     </summary>
   </header>
   <constructor name="(byte[], string)">
     <summary>
-      Creates Attachment.
+      Creates <see cref="Attachment"/>.
     </summary>
     <param name="Data">
-      raw data.
+      file bytes.
     </param>
     <param name="FileName">
-      name with extension.
+      file name with extension.
     </param>
   </constructor>
   <method name="FromFile(string, string)">
     <summary>
-      Creates attachment from file.
+      Creates <see cref="Attachment"/> from file.
     </summary>
-    <remarks>
-      Not buffered.
-    </remarks>
     <param name="Path">
-      file path.
+      path to file.
     </param>
     <param name="DisplayName">
-      [can be null] base name / display name.
+      base name / display name.
     </param>
     <returns>
-      attachment.
+      created <see cref="Attachment"/>.
     </returns>
   </method>
   <property name="Data">
     <summary>
-      Raw data of file.
+      File bytes.
     </summary>
   </property>
   <property name="FileName">
     <summary>
-      File name (name + extension) of attachment.
+      File name with extension.
     </summary>
   </property>
 </docs>

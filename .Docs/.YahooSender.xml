@@ -5,12 +5,12 @@
     <summary>
       [587] [smtp.mail.yahoo.com] Yahoo sender.
       <para />
-      Note: go to account settings -> account security -> allow apps that use less secure sign-in.
+      note: account security -> allow apps that use less secure sign-in.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates Yahoo sender.
+      Creates <see cref="YahooSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

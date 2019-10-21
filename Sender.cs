@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace KamilSzymborski.MailSenders
 {
@@ -22,7 +22,7 @@ namespace KamilSzymborski.MailSenders
 
             mClient = new SmtpClient();
             mSemaphore = new SemaphoreSlim(1);
-
+            
             mInit();
         }
         #endregion
@@ -38,87 +38,52 @@ namespace KamilSzymborski.MailSenders
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, params Attachment[])']/*"/>
         public bool Send(string Message, string Recipient, params Attachment[] Attachments)
         {
-            return mSend(string.Empty, Message, Recipient, null, null, null, Attachments);
+            return mSend(string.Empty, Message, Recipient, Attachments, false, null, null, null);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, params Attachment[] Attachments)
         {
-            return mSend(Title, Message, Recipient, null, null, null, Attachments);
+            return mSend(Title, Message, Recipient, Attachments, false, null, null, null);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, string, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
         {
-            return mSend(Title, Message, Recipient, DisplayName, null, null, Attachments);
+            return mSend(Title, Message, Recipient, Attachments, false, DisplayName, null, null);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, string, string, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, string DisplayName = null, string Replyer = null, params Attachment[] Attachments)
         {
-            return mSend(Title, Message, Recipient, DisplayName, Replyer, null, Attachments);
+            return mSend(Title, Message, Recipient, Attachments, false, DisplayName, Replyer, null);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='Send(string, string, string, string, string, Priority, params Attachment[])']/*"/>
         public bool Send(string Title, string Message, string Recipient, string DisplayName = null, string Replyer = null, Priority? Priority = null, params Attachment[] Attachments)
         {
-            return mSend(Title, Message, Recipient, DisplayName, Replyer, Priority, Attachments);
+            return mSend(Title, Message, Recipient, Attachments, false, DisplayName, Replyer, Priority);
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Message, string Recipient, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(string.Empty, Message, Recipient, null, null, null, Attachments));
-
-            if (Success)
-                Sended?.Invoke();
-            else
-                Failed?.Invoke();
-
-            return Success;
+            return await Task.Run(() => mSend(string.Empty, Message, Recipient, Attachments, true, null, null, null));
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(Title, Message, Recipient, null, null, null, Attachments));
-
-            if (Success)
-                Sended?.Invoke();
-            else
-                Failed?.Invoke();
-
-            return Success;
+            return await Task.Run(() => mSend(Title, Message, Recipient, Attachments, true, null, null, null));
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, string DisplayName = null, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(Title, Message, Recipient, DisplayName, null, null, Attachments));
-
-            if (Success)
-                Sended?.Invoke();
-            else
-                Failed?.Invoke();
-
-            return Success;
+            return await Task.Run(() => mSend(Title, Message, Recipient, Attachments, true, DisplayName, null, null));
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, string, string, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, string DisplayName = null, string Replyer = null, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(Title, Message, Recipient, DisplayName, Replyer, null, Attachments));
-
-            if (Success)
-                Sended?.Invoke();
-            else
-                Failed?.Invoke();
-
-            return Success;
+            return await Task.Run(() => mSend(Title, Message, Recipient, Attachments, true, DisplayName, Replyer, null));
         }
         /// <include file=".Docs/.Sender.xml" path="docs/method[@name='SendAsync(string, string, string, string, string, Priority, params Attachment[])']/*"/>
         public async Task<bool> SendAsync(string Title, string Message, string Recipient, string DisplayName = null, string Replyer = null, Priority? Priority = null, params Attachment[] Attachments)
         {
-            var Success = await Task.Run(() => mSend(Title, Message, Recipient, DisplayName, Replyer, Priority, Attachments));
-
-            if (Success)
-                Sended?.Invoke();
-            else
-                Failed?.Invoke();
-
-            return Success;
+            return await Task.Run(() => mSend(Title, Message, Recipient, Attachments, true, DisplayName, Replyer, Priority));
         }
 
         private void mInit()
@@ -128,7 +93,7 @@ namespace KamilSzymborski.MailSenders
             mClient.Credentials = new NetworkCredential(mLogin, mPassword);
             mClient.EnableSsl = true;
         }
-        private bool mSend(string Title, string Message, string Recipient, string DisplayName = null, string Replyer = null, Priority? Priority = null, params Attachment[] Attachments)
+        private bool mSend(string Title, string Message, string Recipient, Attachment[] Attachments, bool RaiseEvents, string DisplayName = null, string Replyer = null, Priority? Priority = null)
         {
             mSemaphore.Wait();
 
@@ -143,41 +108,44 @@ namespace KamilSzymborski.MailSenders
                     Mail.Body = Message;
                     Mail.IsBodyHtml = true;
                     
-                    if (Priority is null == false)
+                    if ( ! (Priority is null))
                         switch (Priority)
                         {
                             case MailSenders.Priority.Low: Mail.Priority = MailPriority.Low; break;
                             case MailSenders.Priority.Normal: Mail.Priority = MailPriority.Normal; break;
                             case MailSenders.Priority.High: Mail.Priority = MailPriority.High; break;
                         }
-                    if (Replyer is null == false) Mail.ReplyTo = new MailAddress(Replyer);
-                    if (DisplayName is null == false) Mail.From = new MailAddress(mLogin, DisplayName);
+                    if ( ! (Replyer is null)) Mail.ReplyTo = new MailAddress(Replyer);
+                    if ( ! (DisplayName is null)) Mail.From = new MailAddress(mLogin, DisplayName);
                     
                     foreach (var Attachment in Attachments)
                     {
-                        var AttachmentStream = new MemoryStream(Attachment.Data);
-                            AttachmentStream.Position = 0;
+                        var Stream = new MemoryStream(Attachment.Data)
+                        {
+                            Position = 0
+                        };
 
-                        Streams.Add(AttachmentStream);
+                        Streams.Add(Stream);
 
-                        var AttachmentMimeType = MimeService.IsKnown(Attachment.FileName) ? MimeService.From(Attachment.FileName) : MimeService.From(".bin");
+                        var NAttachment = new System.Net.Mail.Attachment(Stream, MimeService.IsKnown(Attachment.FileName) ? MimeService.From(Attachment.FileName) : MimeService.From(".bin"));
+                            NAttachment.ContentDisposition.FileName = Attachment.FileName;
 
-                        var MailAttachment = new System.Net.Mail.Attachment(AttachmentStream, AttachmentMimeType);
-                            MailAttachment.ContentDisposition.FileName = Attachment.FileName;
-
-                        Mail.Attachments.Add(MailAttachment);
+                        Mail.Attachments.Add(NAttachment);
                     }
 
                     mClient.Send(Mail);
                 }
             }
-            catch (Exception)
+            catch
             {
                 Success = false; // in smtpclient exceptions are useless, "one or more error occurred"
             }
             finally
             {
                 Streams.ForEach((Stream) => Stream.Close());
+
+                if (RaiseEvents) if (Success) Sended?.Invoke(); else Failed?.Invoke();
+
                 mSemaphore.Release();
             }
 

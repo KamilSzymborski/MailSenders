@@ -3,12 +3,12 @@
 <docs>
   <header>
     <summary>
-      Base mail sender - declare your own host and port.
+      Base mail sender.
     </summary>
   </header>
   <constructor name="(uint, string, string, string)">
     <summary>
-      Declare your own host and port.
+      Own <see cref="Sender"/>.
     </summary>
     <param name="Port">
       get data from the supplier.
@@ -38,7 +38,7 @@
       Sends the mail synchronously without a title.
     </summary>
     <param name="Message">
-      message in plain text or html.
+      in plain text or html.
     </param>
     <param name="Recipient">
       recipient's email address.
@@ -84,7 +84,7 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
@@ -109,12 +109,12 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
     <param name="Replyer">
-      [can be null] reply email address, for example: "no@reply.com".
+      reply email address, for example: "no@reply.com".
       <para />
       Note: must be like an email address.
     </param>
@@ -139,17 +139,17 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
     <param name="Replyer">
-      [can be null] reply email address, for example: "no@reply.com".
+      reply email address, for example: "no@reply.com".
       <para />
       Note: must be like an email address.
     </param>
     <param name="Priority">
-      [can be null] email priority.
+      email priority.
       <para />
       Note: is not allowed / interpreted everywhere.
     </param>
@@ -211,7 +211,7 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
@@ -236,12 +236,12 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
     <param name="Replyer">
-      [can be null] reply email address, for example: "no@reply.com".
+      reply email address, for example: "no@reply.com".
       <para />
       Note: must be like an email address.
     </param>
@@ -266,17 +266,17 @@
       recipient's email address.
     </param>
     <param name="DisplayName">
-      [can be null] sender's name, for example: "Microsoft Corp.".
+      sender's name, for example: "Microsoft Corp.".
       <para />
       Note: may be ignored / overwritten by account settings.
     </param>
     <param name="Replyer">
-      [can be null] reply email address, for example: "no@reply.com".
+      reply email address, for example: "no@reply.com".
       <para />
       Note: must be like an email address.
     </param>
     <param name="Priority">
-      [can be null] email priority.
+      email priority.
       <para />
       Note: is not allowed / interpreted everywhere.
     </param>

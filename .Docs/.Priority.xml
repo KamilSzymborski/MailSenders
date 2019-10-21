@@ -3,22 +3,22 @@
 <docs>
   <header>
     <summary>
-      E-mail priority.
+      Represents the weight of a given email.
     </summary>
   </header>
   <value name="Low">
     <summary>
-      Low priority.
+      Specifies low priority.
     </summary>
   </value>
   <value name="Normal">
     <summary>
-      Normal priority.
+      Specifies normal priority.
     </summary>
   </value>
   <value name="High">
     <summary>
-      High priority.
+      Specifies high priority.
     </summary>
   </value>
 </docs>

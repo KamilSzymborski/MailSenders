@@ -4,16 +4,11 @@
   <header>
     <summary>
       [587] [smtp.mail.com] Mail sender.
-      <para />
-      Note: you do not have to do anything.
     </summary>
-    <remarks>
-      You do not have to do anything.
-    </remarks>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates Mail sender.
+      Creates <see cref="MailSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

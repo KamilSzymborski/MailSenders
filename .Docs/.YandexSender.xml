@@ -4,13 +4,11 @@
   <header>
     <summary>
       [587] [smtp.yandex.com] Yandex sender.
-      <para />
-      Note: you do not have to do anything.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates Yandex sender.
+      Creates <see cref="YandexSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

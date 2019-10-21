@@ -4,13 +4,11 @@
   <header>
     <summary>
       [587] [smtp.zoho.eu] Zoho sender.
-      <para />
-      Note: you do not have to do anything.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates Zoho sender.
+      Creates <see cref="ZohoSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

@@ -5,12 +5,12 @@
     <summary>
       [587] [smtp.gmail.com] GMail sender.
       <para />
-      Note: go to https://myaccount.google.com/lesssecureapps and set "Allow less secure apps" to ON.
+      note: account security -> allow apps that use less secure sign-in.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates GMail sender.
+      Creates <see cref="GMailSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

@@ -4,13 +4,11 @@
   <header>
     <summary>
       [587] [smtp-mail.outlook.com] Outlook sender.
-      <para />
-      Note: you do not have to do anything.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates Outlook sender.
+      Creates <see cref="OutlookSender"/>.
     </summary>
     <param name="Login">
       e-mail address.

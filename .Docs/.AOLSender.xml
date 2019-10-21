@@ -5,12 +5,12 @@
     <summary>
       [587] [smtp.aol.com] AOL sender.
       <para />
-      Note: go to account security -> allow apps that use less secure sign-in.
+      note: account security -> allow apps that use less secure sign-in.
     </summary>
   </header>
   <constructor name="(string, string)">
     <summary>
-      Creates AOL sender.
+      Creates <see cref="AOLSender"/>.
     </summary>
     <param name="Login">
       e-mail address.
